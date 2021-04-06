@@ -22,13 +22,14 @@
         </header>
         <main>
             <div class="wrapper">
-                <div class="movieContainer" v-for="movie in moviesSelected">
+                <div class="movieContainer" v-for="(movie, index) in moviesSelected">
                     <div class="movie">
                         <img src="" alt="">
                         <h4>Title: {{ movie.title }}</h4>
                         <p>Original title: {{ movie.original_title }}</p>
                         <p>Language: {{ movie.original_language }}</p>
-                        <p>Star: {{ movie.vote_average }}</p>
+                        <p>Vote: {{ movie.vote_average }}</p>
+                        <p>{{ starsCalculate(index) }}</p>
                     </div>
                 </div>
             </div>

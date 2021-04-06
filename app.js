@@ -14,27 +14,28 @@ Vogliamo dopo la risposta dell’API visualizzare a schermo i seguenti valori pe
 var app = new Vue({
   el: "#app",
 
-  mounted() {
-    
-  },
+  mounted() {},
 
   data: {
-    urlDMDB: "https://api.themoviedb.org/3/search/movie?api_key=a608fd695887ae73aa29798f86f15792&query=",
+    urlDMDB:
+      "https://api.themoviedb.org/3/search/movie?api_key=a608fd695887ae73aa29798f86f15792&query=",
     userInput: "",
     moviesSelected: [],
+    stars: 0,
   },
 
   methods: {
     searchMovies() {
-        axios.get(this.urlDMDB + this.userInput).then((res) => {
-          this.moviesSelected = res.data.results;
-          console.log(this.moviesSelected);
-        });
-        this.userInput = "";
+      axios.get(this.urlDMDB + this.userInput).then((res) => {
+        this.moviesSelected = res.data.results;
+        console.log(this.moviesSelected);
+      });
+      this.userInput = "";
     },
-    starVote() {
-
-    }
+    starsCalculate(index) {
+      console.log(parseInt(this.moviesSelected[index].vote_average / 2));
+      this.stars = parseInt(this.moviesSelected[index].vote_average / 2);
+    },
   },
 });
 Vue.config.devtools = true;
