@@ -16,11 +16,22 @@
 <body>
     <div id="app" class="container">
         <header>
-            <img src="img/netflix.png" alt="Spotify Logo">
-            <input type="text" placeholder="Inserisci il titolo del film" v-model="userInput"><button><i class="fas fa-search"></i></button>
+            <img src="img/boolflix.png" alt="Spotify Logo">
+            <input type="text" placeholder="Inserisci il titolo del film" v-model="userInput" @keyup.enter="searchMovies()">
+            <button @click="searchMovies()"><i class="fas fa-search"></i></button>
         </header>
         <main>
-            
+            <div class="wrapper">
+                <div class="movieContainer" v-for="movie in moviesSelected">
+                    <div class="movie">
+                        <img src="" alt="">
+                        <h4>Title: {{ movie.title }}</h4>
+                        <p>Original title: {{ movie.original_title }}</p>
+                        <p>Language: {{ movie.original_language }}</p>
+                        <p>Star: {{ movie.vote_average }}</p>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
