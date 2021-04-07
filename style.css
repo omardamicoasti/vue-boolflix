@@ -83,3 +83,7 @@ main {
 .movie .fas {
     color: yellow;
 }
+.flag img {
+    width: 70px;
+    height: 40px;
+}

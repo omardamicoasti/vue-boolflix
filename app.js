@@ -42,8 +42,7 @@ var app = new Vue({
       "https://api.themoviedb.org/3/search/movie?api_key=a608fd695887ae73aa29798f86f15792&query=",
     userInput: "",
     moviesSelected: [],
-    stars: "fas fa-star",
-    value5: 5,
+    flagUrl: "",
   },
 
   methods: {
@@ -57,6 +56,13 @@ var app = new Vue({
     starsCalculate(vote) {
       return Math.ceil(vote / 2);
     },
+    starsEmpy(num, starsCalculate) {
+      return num - starsCalculate;
+    },
+    setFlag(language) {
+      return "img/" + language + ".png";
+      console.log("ciao")
+    }
     
   },
 });
