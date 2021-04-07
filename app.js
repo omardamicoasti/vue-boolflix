@@ -40,8 +40,11 @@ var app = new Vue({
   data: {
     urlDMDB:
       "https://api.themoviedb.org/3/search/movie?api_key=a608fd695887ae73aa29798f86f15792&query=",
+    urlDMDBseries:
+      "https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it_IT&query=",
     userInput: "",
     moviesSelected: [],
+    seriesSelected: [],
     flagUrl: "",
     flagInDatabase: false,
   },
@@ -51,6 +54,12 @@ var app = new Vue({
       axios.get(this.urlDMDB + this.userInput).then((res) => {
         this.moviesSelected = res.data.results;
         console.log(this.moviesSelected);
+      });
+    },
+    searchSeries() {
+      axios.get(this.urlDMDBseries + this.userInput).then((res) => {
+        this.seriesSelected = res.data.results;
+        console.log(this.seriesSelected);
       });
       this.userInput = "";
     },
@@ -63,8 +72,7 @@ var app = new Vue({
     setFlag(language) {
       this.flagInDatabase = true;
       return "img/" + language + ".png";
-    }
-    
+    },
   },
 });
 Vue.config.devtools = true;
