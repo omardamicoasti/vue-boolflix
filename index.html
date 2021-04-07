@@ -28,8 +28,11 @@
                         <h4>Title: {{ movie.title }}</h4>
                         <p>Original title: {{ movie.original_title }}</p>
                         <p>Language: {{ movie.original_language }}</p>
-                        <p>Vote: {{ movie.vote_average }}</p>
-                        <p>{{ starsCalculate(index) }}</p>
+                        <p>{{ starsCalculate(movie.vote_average) }}</p>
+                        <p v-for="star in starsCalculate(movie.vote_average)" id="stars">
+                            <i :class="stars"></i>
+                        </p>
+                        
                     </div>
                 </div>
             </div>

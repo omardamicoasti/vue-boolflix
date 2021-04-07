@@ -77,3 +77,9 @@ main {
 .movie > p {
     color: #7a7568;
 }
+.movieContainer .movie #stars {
+    display: inline !important; 
+}
+.movie .fas {
+    color: yellow;
+}
