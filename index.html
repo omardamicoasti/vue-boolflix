@@ -21,14 +21,15 @@
             <button @click="searchMovies()"><i class="fas fa-search"></i></button>
         </header>
         <main>
+            <h1>Movies</h1>
             <div class="wrapper">
                 <div class="movieContainer" v-for="(movie, index) in moviesSelected">
                     <div class="movie">
-                        <h4>Title: {{ movie.title }}</h4>
+                        <h4>{{ movie.title }}</h4>
                         <p>Original title: {{ movie.original_title }}</p>
                         <p>Language: {{ movie.original_language }}</p>
-                        <p class="flag"><img :src="setFlag(movie.original_language)" alt="flag"></p>
-                        <p>{{ starsCalculate(movie.vote_average) }}</p>
+                        <p class="flag"><img :src="setFlag(movie.original_language)"></p>
+
                         <p v-for="star in starsCalculate(movie.vote_average)" id="stars">
                             <i class="fas fa-star"></i>
                         </p>
@@ -36,6 +37,25 @@
                             <i class="far fa-star"></i>
                         </p>
                         
+                    </div>
+                </div>
+            </div>
+            <h1>Series</h1>
+            <div class="wrapper">
+                <div class="movieContainer" v-for="(movie, index) in moviesSelected">
+                    <div class="movie">
+                        <h4>{{ movie.title }}</h4>
+                        <p>Original title: {{ movie.original_title }}</p>
+                        <p>Language: {{ movie.original_language }}</p>
+                        <p class="flag"><img :src="setFlag(movie.original_language)" alt="flag"></p>
+            
+                        <p v-for="star in starsCalculate(movie.vote_average)" id="stars">
+                            <i class="fas fa-star"></i>
+                        </p>
+                        <p v-for="star in starsCalculate(starsEmpy(5, starsCalculate(movie.vote_average)))" id="stars">
+                            <i class="far fa-star"></i>
+                        </p>
+            
                     </div>
                 </div>
             </div>

@@ -43,6 +43,7 @@ var app = new Vue({
     userInput: "",
     moviesSelected: [],
     flagUrl: "",
+    flagInDatabase: false,
   },
 
   methods: {
@@ -60,8 +61,8 @@ var app = new Vue({
       return num - starsCalculate;
     },
     setFlag(language) {
+      this.flagInDatabase = true;
       return "img/" + language + ".png";
-      console.log("ciao")
     }
     
   },
