@@ -47,6 +47,11 @@ main {
     background-color: black;
     color: white;
 }
+main h1 {
+    color: #dc1a28;
+    margin: 50px 150px;
+    font-size: 3em;
+}
 .wrapper {
     width: 85%;
     height: 100%;
@@ -60,25 +65,33 @@ main {
 .movieContainer {
     width: 200px;
     height: 300px;
-    background-color:  #2e3a46;
+    background-color: #383838;
     display: flex;
     /* justify-content: center; */
     margin: 10px 10px;
-    border: 1px solid lime;
+    border-radius: 5px;
 }
 .movie {
     width: 85%;
     height: 100%;
-    /* text-align: center; */
     cursor: pointer;
     word-break: initial;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 10px 10px;
 }
 .movie h4 {
-    margin-bottom: 20px;
     color: white;
+    /* margin-bottom: 20px; */
+    font-weight: bolder;
 }
 .movie > p {
-    color: #7a7568;
+    color: lightgrey;
+}
+.movie > p > span {
+    font-weight: bold;
 }
 .movieContainer .movie #stars {
     display: inline !important; 
@@ -87,6 +100,7 @@ main {
     color: yellow;
 }
 .flag img {
-    width: 70px;
-    height: 40px;
+    width: 100px;
+    height: 60px;
+    border-radius: 5px;
 }
