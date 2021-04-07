@@ -24,10 +24,12 @@
             <h1 v-if="flagInDatabase">Movies :</h1>
             <div class="wrapper">
                 <div class="movieContainer" v-for="(movie, index) in moviesSelected">
+                    <img :src="setPoster(movie.poster_path)" class="poster">
                     <div class="movie">
-                        <h4>{{ movie.title }}</h4>
+                        <h4 id="titleDescription">{{ movie.title }}</h4>
                         <p><span>Original title: </span> {{ movie.original_title }}</p>
-                        <p><span>Language: </span> {{ movie.original_language }}</p>
+                        <p class="overview">{{ movie.overview }}</p>
+                        <!-- <p><span>Language: </span> {{ movie.original_language }}</p> -->
                         <p class="flag"><img :src="setFlag(movie.original_language)"></p>
                         <div>
                             <p v-for="star in starsCalculate(movie.vote_average)" id="stars">
@@ -43,10 +45,11 @@
             <h1 v-if="flagInDatabase">Series :</h1>
             <div class="wrapper">
                 <div class="movieContainer" v-for="(series, index) in seriesSelected">
+                    <img :src="setPoster(series.poster_path)" class="poster">
                     <div class="movie">
                         <h4>{{ series.name }}</h4>
                         <p><span>Original title: </span>  {{ series.original_name }}</p>
-                        <p><span>Language: </span>  {{ series.original_language }}</p>
+                        <!-- <p><span>Language: </span>  {{ series.original_language }}</p> -->
                         <p class="flag"><img :src="setFlag(series.original_language)" alt="flag"></p>
                         <div>
                             <p v-for="star in starsCalculate(series.vote_average)" id="stars">

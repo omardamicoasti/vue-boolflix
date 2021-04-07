@@ -78,6 +78,19 @@ var app = new Vue({
       this.flagInDatabase = true;
       return "img/" + language + ".png";
     },
+    setPoster(path) {
+      if (path == null) {
+        let tmp = document.getElementById("titleDescription");
+        if (!!tmp) {
+          tmp.style.zIndex = 999;
+        }        
+        return "img/netflixCard.jpg";
+        
+      } else {
+        return "https://image.tmdb.org/t/p/w342/" + path;
+      }
+      
+    }
   },
 });
 Vue.config.devtools = true;

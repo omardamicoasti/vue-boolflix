@@ -70,6 +70,14 @@ main h1 {
     /* justify-content: center; */
     margin: 10px 10px;
     border-radius: 5px;
+    cursor: pointer;
+    border: 2px solid rgb(58, 58, 58);
+}
+.movieContainer:hover .poster {
+    display: none;
+}
+.movieContainer:hover .movie {
+    display: flex;
 }
 .movie {
     width: 85%;
@@ -80,11 +88,11 @@ main h1 {
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 10px 10px;
+    display: none;
+    padding: 5px 5px;
 }
 .movie h4 {
     color: white;
-    /* margin-bottom: 20px; */
     font-weight: bolder;
 }
 .movie > p {
@@ -103,4 +111,18 @@ main h1 {
     width: 100px;
     height: 60px;
     border-radius: 5px;
+}
+.overview {
+    font-size: 0.7em;
+    height: 35%;
+    max-height: 35%;
+    /* overflow:hidden ;
+    text-overflow: ellipsis; */
+    overflow-y: scroll;
+    scrollbar-width: 2px;
+}
+.poster {
+    /* padding-top: 5px; */
+    /* width: 180px; */
+    width: 100%;
 }
