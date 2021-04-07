@@ -21,8 +21,8 @@
             <button @click="searchMovies(); searchSeries()"><i class="fas fa-search"></i></button>
         </header>
         <main>
-            <h1 v-if="flagInDatabase">Movies :</h1>
-            <div class="wrapper">
+            <h1 v-if="moviesSelected.length > 0">Movies :</h1>
+            <div class="wrapper" v-if="moviesSelected.length > 0">
                 <div class="movieContainer" v-for="(movie, index) in moviesSelected">
                     <img :src="setPoster(movie.poster_path)" class="poster">
                     <div class="movie">
@@ -42,8 +42,8 @@
                     </div>
                 </div>
             </div>
-            <h1 v-if="flagInDatabase">Series :</h1>
-            <div class="wrapper">
+            <h1 v-if="seriesSelected.length > 0" >Series :</h1>
+            <div class="wrapper" v-if="moviesSelected.length > 0">
                 <div class="movieContainer" v-for="(series, index) in seriesSelected">
                     <img :src="setPoster(series.poster_path)" class="poster">
                     <div class="movie">
