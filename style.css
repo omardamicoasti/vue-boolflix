@@ -42,6 +42,14 @@ header > button {
     margin-left: 10px;
     cursor: pointer;
 }
+header > select {
+    width: 120px;
+    height: 25px;
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 0 10px;
+}
 header > ul {
     display: flex;
     justify-content: space-around;
@@ -72,17 +80,14 @@ main h1 {
     height: 100%;
     margin: auto;
     display: flex;
-    /* align-items: center; */
     justify-content: flex-start;
     flex-wrap: wrap;
-    /* overflow-y: auto; */
 }
 .movieContainer {
     width: 200px;
     height: 300px;
     background-color: #383838;
     display: flex;
-    /* justify-content: center; */
     margin: 10px 10px;
     border-radius: 5px;
     cursor: pointer;

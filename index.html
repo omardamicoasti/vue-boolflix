@@ -19,7 +19,9 @@
             <img src="img/boolflix.png" alt="Spotify Logo">
             <input @keyup.enter="searchMovies(); searchSeries()" type="text" placeholder="Inserisci il titolo del film" v-model="userInput">
             <button @click="searchMovies(); searchSeries()"><i class="fas fa-search"></i></button>
-            <select name="" id=""></select>
+            <select v-model="selectedGenre">
+                <option value="{{ genre.id }}"  v-for="genre in genresSelected">{{ genre.id }}{{ genre.name }}</option>
+            </select>
             <ul>
                 <li>Home</li>
                 <li>Tv Series</li>
@@ -37,7 +39,7 @@
         <main>
             <h1 v-if="moviesSelected.length > 0">Movies :</h1>
             <div class="wrapper" v-if="moviesSelected.length > 0">
-                <div class="movieContainer" v-for="(movie, index) in moviesSelected">
+                <div class="movieContainer" v-for="(movie, index) in moviesSelected" v-if="filterGenre(movie)">
                     <img :src="setPoster(movie.poster_path)" class="poster">
                     <div class="movie">
                         <h4 id="titleDescription">{{ movie.title }}</h4>
@@ -58,7 +60,7 @@
             </div>
             <h1 v-if="seriesSelected.length > 0" >Series :</h1>
             <div class="wrapper" v-if="moviesSelected.length > 0">
-                <div class="movieContainer" v-for="(series, index) in seriesSelected">
+                <div class="movieContainer" v-for="(series, index) in seriesSelected" v-if="filterGenre(series)">
                     <img :src="setPoster(series.poster_path)" class="poster">
                     <div class="movie">
                         <h4>{{ series.name }}</h4>

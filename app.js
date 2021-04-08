@@ -40,16 +40,25 @@ https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png
 var app = new Vue({
   el: "#app",
 
-  mounted() {},
+  mounted() {
+    axios.get(this.urlDMDBgenre).then((res) => {
+      this.genresSelected = res.data.genres;
+      console.log(this.genresSelected);
+    });
+  },
 
   data: {
     urlDMDB:
       "https://api.themoviedb.org/3/search/movie?api_key=a608fd695887ae73aa29798f86f15792&query=",
     urlDMDBseries:
-      "https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it_IT&query=",
+      "https://api.themoviedb.org/3/search/tv?api_key=a608fd695887ae73aa29798f86f15792&language=it_IT&query=",
+    urlDMDBgenre:
+      "https://api.themoviedb.org/3/genre/movie/list?api_key=a608fd695887ae73aa29798f86f15792&query=",
     userInput: "",
     moviesSelected: [],
     seriesSelected: [],
+    genresSelected: [],
+    selectedGenre: "All",
     flagUrl: "",
     flagInDatabase: false,
   },
@@ -68,6 +77,13 @@ var app = new Vue({
       });
       this.userInput = "";
     },
+    filterGenre(element) {
+      if (element.genre_ids.includes(this.selectedGenre.value)  || this.selectedGenre == "All") {
+        return true;
+      } else {
+        return false;
+      }
+    },
     starsCalculate(vote) {
       return Math.ceil(vote / 2);
     },
@@ -83,14 +99,12 @@ var app = new Vue({
         let tmp = document.getElementById("titleDescription");
         if (!!tmp) {
           tmp.style.zIndex = 999;
-        }        
+        }
         return "img/netflixCard.jpg";
-        
       } else {
         return "https://image.tmdb.org/t/p/w342/" + path;
       }
-      
-    }
+    },
   },
 });
 Vue.config.devtools = true;
