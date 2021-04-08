@@ -19,6 +19,20 @@
             <img src="img/boolflix.png" alt="Spotify Logo">
             <input @keyup.enter="searchMovies(); searchSeries()" type="text" placeholder="Inserisci il titolo del film" v-model="userInput">
             <button @click="searchMovies(); searchSeries()"><i class="fas fa-search"></i></button>
+            <select name="" id=""></select>
+            <ul>
+                <li>Home</li>
+                <li>Tv Series</li>
+                <li>Movies</li>
+                <li>New and popular</li>
+                <li>My list</li>
+                <li>Watch again</li>
+            </ul>
+            <ul>
+                <li><i class="fas fa-bell"></i></li>
+                <li><i class="fas fa-gift"></i></li>
+                <li><i class="fas fa-bars"></i></li>
+            </ul>
         </header>
         <main>
             <h1 v-if="moviesSelected.length > 0">Movies :</h1>
@@ -29,7 +43,7 @@
                         <h4 id="titleDescription">{{ movie.title }}</h4>
                         <p><span>Original title: </span> {{ movie.original_title }}</p>
                         <p class="overview">{{ movie.overview }}</p>
-                        <!-- <p><span>Language: </span> {{ movie.original_language }}</p> -->
+                        <p>{{ movie.original_language }}</p>
                         <p class="flag"><img :src="setFlag(movie.original_language)"></p>
                         <div>
                             <p v-for="star in starsCalculate(movie.vote_average)" id="stars">
@@ -49,8 +63,8 @@
                     <div class="movie">
                         <h4>{{ series.name }}</h4>
                         <p><span>Original title: </span>  {{ series.original_name }}</p>
-                        <!-- <p><span>Language: </span>  {{ series.original_language }}</p> -->
-                        <p class="flag"><img :src="setFlag(series.original_language)" alt="flag"></p>
+                        <p>{{ series.original_language }}</p>
+                        <p class="flag"><img :src="setFlag(series.original_language)" alt="{{ series.original_language }}"></p>
                         <div>
                             <p v-for="star in starsCalculate(series.vote_average)" id="stars">
                                 <i class="fas fa-star"></i>

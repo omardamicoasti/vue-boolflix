@@ -9,16 +9,20 @@
     width: 100%;
     /* height: 100vh; */
 }
+li {
+    list-style: none;
+    cursor: pointer;
+}
 header {
     width: 100%;
     height: 10%;
     display: flex;
+    justify-content: space-around;
     align-items: center;
     background-color: #383838;
 }
 header > img {
     width: 10%;
-    margin: 0 20px;
 }
 header > input {
     width: 300px;
@@ -35,9 +39,19 @@ header > button {
     border: 1px solid white;
     border-radius: 50%;
     text-align: center;
-    margin-left: 40px;
+    margin-left: 10px;
     cursor: pointer;
 }
+header > ul {
+    display: flex;
+    justify-content: space-around;
+    color: white;
+    margin-left: 40px;
+}
+header li {
+    margin-left: 40px;
+}
+
 body {
     background-color: black;
 }
@@ -46,6 +60,7 @@ main {
     height: 90%;
     background-color: black;
     color: white;
+    padding-bottom: 50px;
 }
 main h1 {
     color: #dc1a28;
@@ -60,7 +75,7 @@ main h1 {
     /* align-items: center; */
     justify-content: flex-start;
     flex-wrap: wrap;
-    overflow-y: auto;
+    /* overflow-y: auto; */
 }
 .movieContainer {
     width: 200px;
@@ -116,13 +131,12 @@ main h1 {
     font-size: 0.7em;
     height: 35%;
     max-height: 35%;
-    /* overflow:hidden ;
-    text-overflow: ellipsis; */
-    overflow-y: scroll;
-    scrollbar-width: 2px;
+    overflow-y: auto;
+    scrollbar-color: rgb(58, 58, 58) rgb(58, 58, 58);
 }
 .poster {
-    /* padding-top: 5px; */
-    /* width: 180px; */
     width: 100%;
+}
+body .container main .wrapper .movieContainer .movie #titleDescription {
+    display: block !important;
 }
