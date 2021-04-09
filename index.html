@@ -20,7 +20,7 @@
             <input @keyup.enter="searchMovies(); searchSeries()" type="text" placeholder="Inserisci il titolo del film" v-model="userInput">
             <button @click="searchMovies(); searchSeries()"><i class="fas fa-search"></i></button>
             <select v-model="selectedGenre">
-                <option value="{{ genre.id }}"  v-for="genre in genresSelected">{{ genre.id }}{{ genre.name }}</option>
+                <option id="prova" v-for="genre in genresSelected">{{ genre.name }}</option>
             </select>
             <ul>
                 <li>Home</li>

@@ -43,7 +43,7 @@ var app = new Vue({
   mounted() {
     axios.get(this.urlDMDBgenre).then((res) => {
       this.genresSelected = res.data.genres;
-      console.log(this.genresSelected);
+      // console.log(this.genresSelected);
     });
   },
 
@@ -57,7 +57,7 @@ var app = new Vue({
     userInput: "",
     moviesSelected: [],
     seriesSelected: [],
-    genresSelected: [],
+    genresSelected: [{name: "All"}],
     selectedGenre: "All",
     flagUrl: "",
     flagInDatabase: false,
@@ -67,18 +67,27 @@ var app = new Vue({
     searchMovies() {
       axios.get(this.urlDMDB + this.userInput).then((res) => {
         this.moviesSelected = res.data.results;
-        console.log(this.moviesSelected);
+        // console.log(this.moviesSelected);
       });
     },
     searchSeries() {
       axios.get(this.urlDMDBseries + this.userInput).then((res) => {
         this.seriesSelected = res.data.results;
-        console.log(this.seriesSelected);
+        // console.log(this.seriesSelected);
       });
       this.userInput = "";
     },
     filterGenre(element) {
-      if (element.genre_ids.includes(this.selectedGenre.value)  || this.selectedGenre == "All") {
+      // console.log(element.genre_ids);
+      // console.log(document.getElementById("prova").value );
+      console.log(this.selectedGenre);
+      let tmp;
+      this.genresSelected.forEach((element) => {
+        if (this.selectedGenre == element.name) {
+          tmp = element.id;
+        }
+      });
+      if (element.genre_ids.includes(tmp)  || this.selectedGenre == "All") {
         return true;
       } else {
         return false;
