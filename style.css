@@ -15,7 +15,7 @@ li {
 }
 header {
     width: 100%;
-    height: 10%;
+    height: 15%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -53,6 +53,7 @@ header > select {
 header > ul {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     color: white;
     margin-left: 40px;
 }
@@ -65,7 +66,7 @@ body {
 }
 main {
     width: 100%;
-    height: 90%;
+    height: 85%;
     background-color: black;
     color: white;
     padding-bottom: 50px;
@@ -144,4 +145,23 @@ main h1 {
 }
 body .container main .wrapper .movieContainer .movie #titleDescription {
     display: block !important;
+}
+
+
+@media screen and (max-width: 1300px) {
+    header {
+    width: 100%;
+    height: 10%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #383838;
+    }
+    header ul {
+        display: none;
+    }
+    header img, header input, header button, header select {
+        margin: 0 20px;
+    }
+    
 }

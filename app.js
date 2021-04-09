@@ -43,7 +43,6 @@ var app = new Vue({
   mounted() {
     axios.get(this.urlDMDBgenre).then((res) => {
       this.genresSelected = res.data.genres;
-      // console.log(this.genresSelected);
     });
   },
 
@@ -57,7 +56,7 @@ var app = new Vue({
     userInput: "",
     moviesSelected: [],
     seriesSelected: [],
-    genresSelected: [{name: "All"}],
+    genresSelected: [{ name: "All", id: 0000 }],
     selectedGenre: "All",
     flagUrl: "",
     flagInDatabase: false,
@@ -67,27 +66,22 @@ var app = new Vue({
     searchMovies() {
       axios.get(this.urlDMDB + this.userInput).then((res) => {
         this.moviesSelected = res.data.results;
-        // console.log(this.moviesSelected);
       });
     },
     searchSeries() {
       axios.get(this.urlDMDBseries + this.userInput).then((res) => {
         this.seriesSelected = res.data.results;
-        // console.log(this.seriesSelected);
       });
       this.userInput = "";
     },
     filterGenre(element) {
-      // console.log(element.genre_ids);
-      // console.log(document.getElementById("prova").value );
-      console.log(this.selectedGenre);
       let tmp;
       this.genresSelected.forEach((element) => {
         if (this.selectedGenre == element.name) {
           tmp = element.id;
         }
       });
-      if (element.genre_ids.includes(tmp)  || this.selectedGenre == "All") {
+      if (element.genre_ids.includes(tmp) || this.selectedGenre == "All") {
         return true;
       } else {
         return false;
