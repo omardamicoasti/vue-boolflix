@@ -67,6 +67,10 @@ var app = new Vue({
       axios.get(this.urlDMDB + this.userInput).then((res) => {
         this.moviesSelected = res.data.results;
       });
+      setTimeout(function() {
+        document.getElementById('scrollHere').scrollIntoView({ behavior: 'smooth' });
+        
+      }, 200)
     },
     searchSeries() {
       axios.get(this.urlDMDBseries + this.userInput).then((res) => {

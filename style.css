@@ -4,7 +4,6 @@
     box-sizing: border-box;
     font-family: 'Lato', sans-serif;
 }
-
 .container {
     width: 100%;
     /* height: 100vh; */
@@ -15,11 +14,13 @@ li {
 }
 header {
     width: 100%;
-    height: 15%;
+    height: 10%;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: #383838;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    z-index: 999;
 }
 header > img {
     width: 10%;
@@ -66,7 +67,7 @@ body {
 }
 main {
     width: 100%;
-    height: 85%;
+    height: 90%;
     background-color: black;
     color: white;
     padding-bottom: 50px;
