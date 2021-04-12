@@ -36,11 +36,11 @@
                 <li><i class="fas fa-bars"></i></li>
             </ul>
         </header>
-        <video width="100%" autoplay muted controls loop>
-            <source src="img/fauda.mp4" type="video/mp4">
-            <source src="movie.ogg" type="video/ogg">
-        </video>
         <main>
+            <video width="100%" autoplay muted loop>
+                <source src="img/fauda.mp4" type="video/mp4">
+                <source src="movie.ogg" type="video/ogg">
+            </video>
             <h1 id="scrollHere" v-if="moviesSelected.length > 0">Movies :</h1>
             <div class="wrapper" v-if="moviesSelected.length > 0">
                 <div class="movieContainer" v-for="(movie, index) in moviesSelected" v-if="filterGenre(movie)">
